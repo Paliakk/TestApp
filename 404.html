@@ -2,9 +2,11 @@
 <html>
 <head>
     <script>
-        // Rediriger vers index.html en préservant l'URL actuelle
-        var path = window.location.pathname;
-        window.location.replace('/TestApp/index.html' + '?path=' + path);
+        // Récupérer la route actuelle
+        var currentPath = window.location.pathname + window.location.search;
+        
+        // Rediriger vers index.html avec la route originale en paramètre
+        window.location.replace('/TestApp/index.html?path=' + encodeURIComponent(currentPath));
     </script>
 </head>
 <body>
