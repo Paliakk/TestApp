@@ -31,6 +31,16 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script>
+    // Vérifier si un paramètre "path" est présent dans l'URL
+    const params = new URLSearchParams(window.location.search);
+    const redirectPath = params.get('path');
+
+    if (redirectPath) {
+        // Mettre à jour l'URL sans recharger la page
+        window.history.replaceState({}, '', redirectPath);
+    }
+</script>
 </body>
 
 </html>
